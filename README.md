@@ -14,6 +14,9 @@ async function readme() {
   await boss.start()
 
   const queue = 'readme-queue'
+  if (boss.getQueue(queue)) {
+    boss.createQueue(queue);
+  }
 
   const id = await boss.send(queue, { arg1: 'read me' })
 
